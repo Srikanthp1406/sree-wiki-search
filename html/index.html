@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wikipedia</title>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<script>
+    $(document).ready(function () {
+        $("#btnSearch").click(function () {
+            var searchTerm = $('#searchTerm').val();
+            $.ajax({
+                type: 'GET',
+                // The URL to make the request to.
+                url: 'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=' + searchTerm + '&utf8=&format=json',
+                dataType: 'JSONP',
+                success: function (data) {
+                    var searchResults = data.query.search;
+                    var resultDiv = document.querySelector('.result');
+                    var result_count_Div = document.querySelector('.result-count');
+
+                    resultDiv.innerHTML = '';
+                    result_count_Div.innerHTML = '';
+                    if (searchResults.length > 0) {
+                        result_count_Div.innerHTML = 'Top' + searchResults.length + ' Results for ' + searchTerm;
+                        searchResults.forEach(function (sr) {
+                            var html = '<div class="result-header"><h4>' + sr.title + '</h4><p>' + sr.snippet + '</p></div>';
+                            resultDiv.innerHTML += html;
+                        });
+                    }
+                    else {
+                        resultDiv.innerHTML = '<h3>No results found, Please type specific and appropriate words</h3>';
+                    }
+                },
+
+                error: function () {
+                }
+            });
+        });
+    });
+</script>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 col-sm-12">
+            <h3> Welcome to Wikipedia</h3>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-8 col-sm-8 col-md-8 col-xs-12">
+            <input type="text" id="searchTerm" class="form-control" placeholder="Enter The word"/>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <button id="btnSearch" type="button" class="btn btn-primary btn-search"><span
+                    class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 col-md-12">
+            <h3 class="result-count"></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 col-md-12">
+            <div class="result">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'allerbold';
+    src: url('../fonts/aller_bd-webfont.eot');
+    src: url('../fonts/aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_bd-webfont.woff2') format('woff2'),
+         url('../fonts/aller_bd-webfont.woff') format('woff'),
+         url('../fonts/aller_bd-webfont.ttf') format('truetype'),
+         url('../fonts/aller_bd-webfont.svg#allerbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'allerregular';
+    src: url('../fonts/aller_rg-webfont.eot');
+    src: url('../fonts/aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_rg-webfont.woff2') format('woff2'),
+         url('../fonts/aller_rg-webfont.woff') format('woff'),
+         url('../fonts/aller_rg-webfont.ttf') format('truetype'),
+         url('../fonts/aller_rg-webfont.svg#allerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*General Styles*/
+
+body{font-family: 'Lato', sans-serif; font-weight: 400; color: #48484b;}
+h1,h2,h3,h5,h6{font-family: 'Lato', sans-serif; font-weight: 700; color: #48484b; }
+h4{font-family: 'Lato', sans-serif; font-weight: 700; color: #0874bb; }
+a{ font-family: 'allerregular'; color: #0874bb; }
+.orange{ color: #f15922;}
+.green{color: #99bf31;}
+.blue{ color: #0874bb;}
+.btn{text-align: center;   font-family: 'allerbold'; font-size: 14px; text-transform: uppercase; border:none; color: #fff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+.btn-border{text-align: center;   font-family: 'allerbold'; font-size: 14px; text-transform: uppercase; border: 2px solid #58585a; background: #fff;  color: #58585a; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+
+
+
+label{ color: #333333; font-size: 16px; margin-top: 10px; }
+.form-control{-webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px; line-height: 45px; height: 45px; font-size: 16px; color: #58585a;}
